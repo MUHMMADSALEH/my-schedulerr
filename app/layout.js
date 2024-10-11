@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./provider";
+import CreateEventDrawer from "@/components/create-event";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metaData = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
               <p>&copy;2024. All rights reserved.</p>
             </div>
           </footer>
+          <CreateEventDrawer/>
         </Providers>
       </body>
     </html>

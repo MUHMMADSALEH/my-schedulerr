@@ -9,6 +9,9 @@ import { useForm } from 'react-hook-form'
 import {zodResolver} from "@hookform/resolvers/zod"
 import { usernameSchema } from '@/app/lib/validator'
 import { useEffect } from 'react'
+import useFetch from '@/hooks/use-fetch'
+import { UpdateUsername } from '@/app/actions/user'
+import { BarLoader } from 'react-spinners'
 
   
 
@@ -22,8 +25,13 @@ useEffect(()=>{
  const {register,handleSubmit,setValue,formState:{errors}}= useForm({
     resolver:zodResolver(usernameSchema)
   })
-  const onSubmit=async(data)=>{}
-  console.log("errors",errors)
+//we pass here our actions(updateUsername) which coming from here @/app/actions/user
+  const{loading,error,data,fn:fnUpdateUsername}=useFetch(UpdateUsername)
+  const onSubmit=async(data)=>{
+fnUpdateUsername(data.username)
+  }
+  // console.log("errors",errors)
+  // console.log("data from user action",data)
   return (
     <div className="space-y-8">
       <Card>
@@ -46,8 +54,14 @@ useEffect(()=>{
                 {
                   errors?.username && <p className="text-red-500 text-sm mt-1">{errors?.username.message}</p>
                 }
+                {
+                  error && <p className="text-red-500 text-sm mt-1">{errors?.message}</p>
+                }
               </div>
             </div>
+            {
+              loading && <BarLoader className="mb-4" width={"100%"} color='#36d7b7'/> 
+            }
           <Button type="submit" className="mt-4">Update Username</Button>
           </form>
         </CardContent>
