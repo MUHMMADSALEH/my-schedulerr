@@ -38,9 +38,17 @@ router.refresh()
         }
       };
     
+      const handleCardClick = (e) => {
+        if (e.target.tagName !== "BUTTON" && e.target.tagName !== "SVG") {
+          window?.open(
+            `${window?.location.origin}/${username}/${event.id}`,
+            "_blank"
+          );
+        }
+      };
 
   return (
-    <Card>
+    <Card onClick={handleCardClick}>
   <CardHeader>
     <CardTitle className="text-2xl">{event.title}</CardTitle>
     <CardDescription className="flex justify-between">
