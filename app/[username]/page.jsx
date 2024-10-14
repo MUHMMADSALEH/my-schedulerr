@@ -1,3 +1,4 @@
+
 import { notFound } from "next/navigation";
 import { getUserByUsername } from "../actions/user";
 import EventCard from "@/components/event-card";

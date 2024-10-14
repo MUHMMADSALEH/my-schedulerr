@@ -51,7 +51,7 @@ export default function Home() {
             Schedulerr helps you to manage your time effectively.Create events ,set your availability,and let others book time with you seamlessly.
           </p>
           <Link href="/dashboard">
-            <Button className="text-lg" size="lg">Get Started<ArrowDown className="ml-2 h-5 w-5" /></Button>
+            <Button className="text-lg" size="lg">Get Started<ArrowRight className="ml-2 h-5 w-5" /></Button>
           </Link>
         </div >
         <div className="lg:w-1/2 flex justify-center ">

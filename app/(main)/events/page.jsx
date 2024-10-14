@@ -17,7 +17,7 @@ export default function EventPage(){
 const Events = async() => {
   const {events,username}=await getUserEvents()
   if(events.length===0){
-    return <p>You Have&pos;t created any event yet.</p>
+    return <p>You Have&apos;t created any event yet.</p>
   }
   return (
    <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
