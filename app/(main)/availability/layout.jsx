@@ -1,10 +1,10 @@
-import { Progress } from '@/components/ui/progress'
+
 import React, { Suspense } from 'react'
 
 
 const Availabiltylayout = ({children}) => {
   return (
-    <div className='mx-auto'><Suspense fallback={<Progress value={33} />}>
+    <div className='mx-auto'><Suspense fallback={<div>Loading availability....</div>}>
         {children}
         </Suspense></div>
   )

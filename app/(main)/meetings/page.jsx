@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { getUserMeetings } from "@/actions/meetings";
+import { getUserMeetings } from "@/app/actions/meetings";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import MeetingList from "./_components/meeting-list";
+import MeetingList from "./_component/meeting-list";
 
 export const metadata = {
   title: "Your Meetings | Schedulrr",

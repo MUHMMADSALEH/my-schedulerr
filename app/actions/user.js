@@ -4,7 +4,7 @@ import { db } from "@/lib/prisma"
 import { auth, clerkClient } from "@clerk/nextjs/server"
 
 
-export const UpdateUsername = async (username) => {
+export const updateUsername = async (username) => {
     // step:1 check user already Exist in clerk
     const { userId } = auth()
     if (!userId) {

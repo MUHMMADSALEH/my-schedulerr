@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import Testimonial from "@/components/testimonial";
+import { checkUser } from "@/lib/checkUser";
 
 const features = [
   {
@@ -41,7 +42,8 @@ const howItWorks = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const user= await checkUser()
   return (
     <main className="container mx-auto px-4 py-16">
       <div className=" flex flex-col lg:flex-row mb-24 gap-12 items-center justify-between">
@@ -50,8 +52,8 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-10">
             Schedulerr helps you to manage your time effectively.Create events ,set your availability,and let others book time with you seamlessly.
           </p>
-          <Link href="/dashboard">
-            <Button className="text-lg" size="lg">Get Started<ArrowRight className="ml-2 h-5 w-5" /></Button>
+          <Link href={user?"/dashboard  ":"/"}>
+            <Button className="text-lg" size="lg">Get Started After Login<ArrowRight className="ml-2 h-5 w-5" /></Button>
           </Link>
         </div >
         <div className="lg:w-1/2 flex justify-center ">
@@ -122,9 +124,9 @@ export default function Home() {
   
   <h3 className="text-3xl font-bold mb-4">Ready To Simplify Your Scheduling?</h3>
   <p className="text-xl  mb-6">Join thousands of professionals who trust Schedulerr for efficient timemanagement.</p>
-    <Link href="/dashboard">
+    <Link href={user?"/dashboard":"/"}>
     <Button size='lg' variant="secondary" className="text-blue-600">
-      Start for Free <ArrowRight  className="w-5 h-5 ml-2"/>
+      Start for Free After Login<ArrowRight  className="w-5 h-5 ml-2"/>
     </Button>
     </Link>
 

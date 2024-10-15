@@ -10,7 +10,7 @@ import { checkUser } from '@/lib/checkUser'
 
 
   const Header = async() => {
-    await checkUser()
+   const user= await checkUser()
     return (
       <nav className='mx-auto py-2 px-4 flex justify-between items-center shadow-md border-b-2'>
         <Link href={"/"} className='flex items-center '>
@@ -19,9 +19,11 @@ import { checkUser } from '@/lib/checkUser'
         </Link>
 
         <div className='flex items-center gap-4'>
-          <Link href="/events?create=true">
-            <Button className="flex items-center gap-2" ><PenBox size={18} />Create Event</Button>
-          </Link>
+         {
+          user &&  <Link href="/events?create=true">
+          <Button className="flex items-center gap-2" ><PenBox size={18} />Create Event</Button>
+        </Link>
+         }
           {/* it  will  only be   rendering  when user is not loggedin */}
           <SignedOut>
             <SignInButton forceRedirectUrl='/dashboard'>

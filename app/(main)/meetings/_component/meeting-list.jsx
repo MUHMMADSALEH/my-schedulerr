@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar, Clock, Video } from "lucide-react";
-import CancelMeetingButton from "./cancel-meeting";
+import CancelMeetingButton from "./cancel-meetings";
 
 export default function MeetingList({ meetings, type }) {
   if (meetings.length === 0) {

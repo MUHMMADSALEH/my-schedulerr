@@ -2,13 +2,13 @@ import { getUserEvents } from '@/app/actions/event-action'
 import EventCard from '@/components/event-card'
 import React from 'react'
 import { Suspense } from 'react'
-import { Progress } from "@/components/ui/progress"
+
 
 export default function EventPage(){
   return(
 
 <Suspense>
-  <Events fallback={<Progress value={33} />
+  <Events fallback={<div>Loading Events.....</div>
 }/>
 </Suspense>
   )
