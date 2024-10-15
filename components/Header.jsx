@@ -28,7 +28,7 @@ import { checkUser } from '@/lib/checkUser'
           <SignedOut>
             <SignInButton forceRedirectUrl='/dashboard'>
 
-              <Button variant="outline">Login</Button>
+              <Button>Login</Button>
             </SignInButton>
           </SignedOut>  
           {/* it  will   only be rendering  when user is signedin */}
